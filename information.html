@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Business Casual - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/business-casual.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body>
+
+    <div class="brand">My Coffce Shop</div>
+    <div class="address-bar">G/F, 10 Kwun Chung Street | Tsim Sha Tsui | 2666 7888</div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">Business Casual</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="login.html">Login</a>
+                    </li>
+                    <li>
+                       <a href ="login.html" onClick="warning();">Member</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+	<script>
+	function warning() {
+    alert("Please Login!")
+    }
+	</script>
+
+    <div class="container">
+
+
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Login
+                    </h2>
+                    <hr>
+
+                    <hr class="visible-xs">
+
+                    <p>URL                  <class=" text-center">  http://localhost:9000/login.html</class></p>
+                    <p>Method                 POST</p>
+					          <p>Data {  </p>
+                    <p>"username" : abc</p>
+                    <p>"password" : 123</p>
+                    <p>}</p>
+
+                    <p>Result   {</p>
+                    <p>console.log(item[i].pass)</p>
+                    <p>console.log and io.emit("login sucessful")</p>
+                    <p>window.location = "/index1.html"</p>
+                    <p>}</p>
+
+                    <p>Error   {</p>
+                    <p>alert("Your ID/password is wrong!")</p>
+                    <p>}</p>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Reigster
+                    </h2>
+                    <hr>
+                    <p>URL                  <class=" text-center">  http://localhost:9000/reigster.html</class></p>
+                    <p>Method                 POST</p>
+					          <p>Data {  </p>
+                    <p>"username" : boy</p>
+                    <p>"password" : girl</p>
+                    <p>"repassword" : girl</p>
+                    <p>"email" : ggg@hotmail.com</p>
+                    <p>}</p>
+
+                    <p>Result   {</p>
+                    <p>console.log and io.emit("Reigster sucessful")</p>
+                    <p>window.location = "/index.html"</p>
+                    <p>}</p>
+
+                    <p>Error   {</p>
+                    <p>alert(Username and Password should be different!)</p>
+                    <p>}</p>
+                  </div>
+            </div>
+        </div>
+
+		<div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Add to favourite
+                    </h2>
+                    <hr>
+                    <p>URL                  <class=" text-center">  http://localhost:9000/member.html</class></p>
+                    <p>Method                 POST</p>
+                    <p>Data {  </p>
+                    <p>"username" : boy</p>
+                    <p>"action" : "addFav1"/"addFav2"/"addFav3"
+                    <p>"fav" =  document.getElementById("D1"/"D2"/"D3").innerHTML;
+                    <p>}</p>
+
+                    <p>Result   {</p>
+                    <p>console.log and io.emit("favorite added!")</p>
+                    <p>}</p>
+
+                  </div>
+            </div>
+        </div>
+
+
+       <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Remove from favourite
+                    </h2>
+                    <hr>
+                    <p>URL                  <class=" text-center">  http://localhost:9000/member.html</class></p>
+                    <p>Method                 POST</p>
+                    <p>Data {  </p>
+                    <p>"username" : boy</p>
+                    <p>"action" : "remove1"/"remove2"/"remove3"
+                    <p>"fav" =  document.getElementById("D1"/"D2"/"D3").innerHTML;
+                    <p>}</p>
+
+                    <p>Result   {</p>
+                    <p>console.log and io.emit("favorite removed!")</p>
+                    <p>}</p>
+                    </div>
+            </div>
+        </div>
+
+       <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Google map
+                    </h2>
+                    <hr>
+                <p>function initMap() {  </p>
+                <p>  var shop = {lat: 22.303376, lng: 114.168849};</p>
+                <p>  var map = new google.maps.Map(document.getElementById('map'), {</p>
+                <p>zoom: 19,</p>
+                <p>center: shop</p>
+                <p>    });</p>
+                <p>var marker = new google.maps.Marker({</p>
+                <p>position: shop,</p>
+                <p>map: map,</p>
+                <p>});</p>
+                <p>  }</p>
+
+                  <p>script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"  /script</p>
+                  </div>
+            </div>
+        </div>
+
+
+    <div class="row">
+         <div class="box">
+             <div class="col-lg-12">
+                 <hr>
+                 <h2 class="intro-text text-center">Youtube
+                 </h2>
+                 <hr>
+                <p>div id="ytplayer"/div</p>
+
+
+                <p>var tag = document.createElement('script');</p>
+                <p>  tag.src = "https://www.youtube.com/player_api";</p>
+                <p>var firstScriptTag = document.getElementsByTagName('script')[0];</p>
+                <p>firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);</p>
+
+
+                <p>  var player;</p>
+                <p>  function onYouTubePlayerAPIReady() {</p>
+                <p>  player = new YT.Player('ytplayer', {</p>
+                <p>  height: '360',</p>
+                <p>  width: '640',</p>
+                <p>  videoId: 'aBLYSO0DSVI'</p>
+                <p>});</p>
+                <p>  }</p>
+               </div>
+           </div>
+       </div>
+
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <a href='information.html'>API information</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+  <title>Blog - Coffee Shop</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/business-casual.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+
+
+<body>
+
+  <div class="brand">My Coffee Shop</div>
+  <div class="address-bar">G/F, 10 Kwun Chung Street | Tsim Sha Tsui | 2666 7888</div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">Business Casual</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index1.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="logout.html">Logout</a>
+                    </li>
+                    <li>
+                        <a href="Member.html">Member</a>
+                    </li>
+                    <li>
+                        <a href="Mcontact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">
+					                 <Strong>Your Favourite List</Strong>
+                    </h2>
+                    <hr>
+                </div>
+                <div class="col-md-6">
+                    <img class="img-responsive img-border-left" src="img/slide-2.jpg" alt="">
+                </div>
+
+                <div class="clearfix"></div>
+				<div>
+				<p id="UserFav" class="intro-text text-center"></p>
+        <p id="UserFav2"class="intro-text text-center"></p>
+        <p id="UserFav3"class="intro-text text-center"></p>
+
+				</div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Our
+                        <strong>Product</strong>
+                    </h2>
+                    <hr>
+                </div>
+                <div class="col-sm-4 text-center" id="fav1">
+                    <img class="content_div" src="img/product1.jpg" width="300" height="200" alt="">
+                    <h4> <p id = "D1">Latte</p>
+                        <h5>Coffee drink made with espresso and steamed milk.</h4>
+                    </h3>
+
+
+					<input type="button" id = "add1"  value = "Add to favourite list"/>
+
+					<div id="rem1">
+					<input type="button" id = "remove1"  value = "Remove from favourite list"/>
+					</div>
+                </div>
+
+                <div class="col-sm-4 text-center">
+                    <img class="content_div" src="img/product2.jpg" width="300" height="200" alt="">
+                    <h3> <p id = "D2">Mocha</p>
+                        <h5>Mocha is based on espresso and hot milk, but with added chocolate, typically in the form of sweet cocoa powder.</h5>
+                    </h3>
+
+					<div id="fav2">
+					<input type="button" id = "add2"  value = "Add to favourite list"/>
+					</div>
+
+					<div  id="rem2">
+					<input type="button" id = "remove2"  value = "Remove from favourite list"/>
+					</div>
+                </div>
+
+
+                <div class="col-sm-4 text-center">
+                   <img class="content_div" src="img/product3.jpg" width="300" height="200" alt="">
+                    <h3> <p id = "D3">Cappuccino</p>
+                        <h5>Cappuccino is a coffee drink that today is composed of double espresso and hot milk, with the surface topped with foamed milk.</h5>
+                    </h3>
+
+					<div id="fav3">
+					<input type="button" id = "add3"  value = "Add to favourite list"/>
+					</div>
+					<div id="rem3">
+					<input type="button" id = "remove3"  value = "Remove from favourite list"/>
+					</div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+	<script src="/socket.io/socket.io.js"></script>
+
+	<script>
+	var socket = io();
+
+
+	socket.on("login_success", function(data) {
+	userN = data.username;
+	fav1 = data.fav1;
+//  var obj1 = JSON.parse(fav1);
+	fav2 = data.fav2;
+	fav3 = data.fav3;
+  console.log(data);
+	console.log("A :" + userN);
+	console.log(fav1+"/"+fav2+"/"+fav3);
+
+
+  $(function(){
+	if (fav1 != null){
+	document.getElementById("UserFav").innerHTML = fav1;
+	}
+  if (fav2 != null){
+	document.getElementById("UserFav2").innerHTML = fav2;
+	}
+  if (fav3 != null){
+	document.getElementById("UserFav3").innerHTML = fav3;
+	}
+	});
+
+	});
+
+
+
+
+  $(function () {
+		$("#add1").click(function(e) {
+		var user = {};
+    user.userN = userN;
+		user.fav =  document.getElementById("D1").innerHTML;
+		user.action = "addFav1";
+		console.log("member" +": " + userN);
+        //alert(inputName);
+				//alert(user.favorite);
+				alert("Favorite added!");
+				$.ajax( {
+					url: "http://localhost:9000/member.html",
+					type: "POST",
+					data: user,
+					success: function(data) {
+					console.log("favorite added!");
+				}
+				});
+				return false;
+		});
+	});
+
+
+
+  $(function () {
+		$("#remove1").click(function(e) {
+		var user = {};
+    user.userN = userN;
+		user.action = "remove1";
+		console.log("member" +": " + userN);
+        //alert(inputName);
+				//alert(user.favorite);
+				alert("Favorite removed!");
+				$.ajax( {
+					url: "http://localhost:9000/member.html",
+					type: "POST",
+					data: user,
+					success: function(data) {
+					console.log("favorite remove!");
+				}
+				});
+				return false;
+		});
+	});
+
+
+  $(function () {
+		$("#add2").click(function(e) {
+		var user = {};
+        user.userN = userN;
+		user.fav =  document.getElementById("D2").innerHTML;
+		user.action = "addFav2";
+		console.log("member" +": " + userN);
+        //alert(inputName);
+				//alert(user.favorite);
+				alert("Favorite added!");
+				$.ajax( {
+					url: "http://localhost:9000/member.html",
+					type: "POST",
+					data: user,
+					success: function(data) {
+					console.log("favorite added!");
+				}
+				});
+				return false;
+		});
+	});
+
+  $(function () {
+		$("#remove2").click(function(e) {
+		var user = {};
+        user.userN = userN;
+		user.action = "remove2";
+		console.log("member" +": " + userN);
+        //alert(inputName);
+				//alert(user.favorite);
+				alert("Favorite removed!");
+				$.ajax( {
+					url: "http://localhost:9000/member.html",
+					type: "POST",
+					data: user,
+					success: function(data) {
+					console.log("favorite remove!");
+				}
+				});
+				return false;
+		});
+	});
+
+  $(function () {
+		$("#add3").click(function(e) {
+		var user = {};
+        user.userN = userN;
+		user.fav =  document.getElementById("D3").innerHTML;
+		user.action = "addFav3";
+		console.log("member" +": " + userN);
+        //alert(inputName);
+				//alert(user.favorite);
+				alert("Favorite added!");
+				$.ajax( {
+					url: "http://localhost:9000/member.html",
+					type: "POST",
+					data: user,
+					success: function(data) {
+					console.log("favorite added!");
+				}
+				});
+				return false;
+		});
+	});
+
+  $(function () {
+		$("#remove3").click(function(e) {
+		var user = {};
+        user.userN = userN;
+		user.action = "remove3";
+		console.log("member" +": " + userN);
+        //alert(inputName);
+				//alert(user.favorite);
+				alert("Favorite removed!");
+				$.ajax( {
+					url: "http://localhost:9000/member.html",
+					type: "POST",
+					data: user,
+					success: function(data) {
+					console.log("favorite remove!");
+				}
+				});
+				return false;
+		});
+	});
+
+
+
+	</script>
+  <footer>
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12 text-center">
+                  <a href='information.html'>API information</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+</body>
+
+</html>
