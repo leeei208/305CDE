@@ -252,7 +252,6 @@ function update() {
         collection.find().toArray(function(err, items) {
 
             for (var i=0; i<items.length; i++) {
-              console.log(userN);
               if (userN == items[i].username ) {
                 userN = items[i].username;
                 fav1 = items[i].fav[0];
